@@ -2,8 +2,8 @@
 
 
 import $ from 'jquery';
-import { Plugin } from './foundation.core.plugin';
 import { onLoad, GetYoDigits } from './foundation.core.utils';
+import { Plugin } from './foundation.core.plugin';
 import { SmoothScroll } from './foundation.smoothScroll';
 
 /**
@@ -102,7 +102,7 @@ class Magellan extends Plugin {
         })
         .on('click.zf.magellan', 'a[href^="#"]', function (e) {
           e.preventDefault();
-          var arrival = this.getAttribute('href');
+          var arrival   = this.getAttribute('href');
           _this.scrollToLoc(arrival);
         });
     });
@@ -195,11 +195,7 @@ class Magellan extends Plugin {
       if(window.history.pushState){
         // Set or remove the hash (see: https://stackoverflow.com/a/5298684/4317384
         const url = activeHash ? activeHash : window.location.pathname + window.location.search;
-        if(this.options.updateHistory){
-          window.history.pushState({}, '', url);
-        }else{
-          window.history.replaceState({}, '', url);
-        }
+        window.history.pushState(null, null, url);
       }else{
         window.location.hash = activeHash;
       }

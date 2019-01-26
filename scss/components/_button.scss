@@ -111,12 +111,11 @@ $button-responsive-expanded: false !default;
     padding: $button-padding;
   }
 
-  border: $button-border;
+  border: 1px solid transparent;
   border-radius: $button-radius;
   transition: $button-transition;
   font-family: $button-font-family;
   font-size: map-get($button-sizes, default);
-  font-weight: $button-font-weight;
   -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
   line-height: 1;
   text-align: center;
@@ -256,12 +255,12 @@ $button-responsive-expanded: false !default;
   }
 }
 
-/// Sets the visual style of a clear button.
-/// @param {Color} $color [$button-background] - Text color of the button.
-/// @param {Color} $hover-lightness [$button-hollow-hover-lightness] - Color lightness on hover.
-@mixin button-clear-style(
-  $color: $button-background,
-  $hover-lightness: $button-hollow-hover-lightness
+/// Adds disabled styles to a button by fading the element, reseting the cursor, and disabling pointer events.
+/// @param {Color} $background [$button-background] - Background color of the disabled button.
+/// @param {Color} $color [$button-color] - Text color of the disabled button. Set to `auto` to have the mixin automatically generate a color based on the background color.
+@mixin button-disabled(
+  $background: $button-background,
+  $color: $button-color
 ) {
   $color-hover: scale-color($color, $lightness: $hover-lightness);
 
@@ -396,7 +395,7 @@ $button-responsive-expanded: false !default;
         }
       }
 
-      &.hollow {
+      &.hollow, &.clear {
         &::after {
           border-top-color: $button-background;
         }

@@ -6,7 +6,7 @@ import { GetYoDigits, ignoreMousedisappear } from './foundation.core.utils';
 import { Positionable } from './foundation.positionable';
 
 import { Triggers } from './foundation.util.triggers';
-
+import { Touch } from './foundation.util.touch'
 
 /**
  * Dropdown module.
@@ -66,16 +66,20 @@ class Dropdown extends Positionable {
       this.$parent = null;
     }
 
-    // Do not change the `labelledby` if it is defined
-    var labelledby = this.$element.attr('aria-labelledby')
-      || this.$currentAnchor.attr('id')
-      || GetYoDigits(6, 'dd-anchor');
+    // Set [aria-labelledby] on the Dropdown if it is not set
+    if (typeof this.$element.attr('aria-labelledby') === 'undefined') {
+      // Get the anchor ID or create one
+      if (typeof this.$currentAnchor.attr('id') === 'undefined') {
+        this.$currentAnchor.attr('id', GetYoDigits(6, 'dd-anchor'));
+      };
+
+      this.$element.attr('aria-labelledby', this.$currentAnchor.attr('id'));
+    }
 
     this.$element.attr({
       'aria-hidden': 'true',
       'data-yeti-box': $id,
       'data-resize': $id,
-      'aria-labelledby': labelledby
     });
 
     super._init();
@@ -418,14 +422,7 @@ Dropdown.defaults = {
    * @type {boolean}
    * @default false
    */
-  closeOnClick: false,
-  /**
-   * If true the default action of the toggle (e.g. follow a link with href) gets executed on click. If hover option is also true the default action gets prevented on first click for mobile / touch devices and executed on second click.
-   * @option
-   * @type {boolean}
-   * @default true
-   */
-  forceFollow: true
+  closeOnClick: false
 };
 
 export {Dropdown};

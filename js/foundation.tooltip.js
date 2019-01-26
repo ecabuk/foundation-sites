@@ -216,13 +216,6 @@ class Tooltip extends Positionable {
       }));
     }
 
-    if (hasTouch) {
-      this.$element
-      .on('tap.zf.tooltip touchend.zf.tooltip', function (e) {
-        _this.isActive ? _this.hide() : _this.show();
-      });
-    }
-
     if (this.options.clickOpen) {
       this.$element.on('mousedown.zf.tooltip', function(e) {
         if (_this.isClick) {

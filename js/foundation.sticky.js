@@ -1,9 +1,9 @@
 'use strict';
 
 import $ from 'jquery';
-import { Plugin } from './foundation.core.plugin';
 import { onLoad, GetYoDigits } from './foundation.core.utils';
 import { MediaQuery } from './foundation.util.mediaQuery';
+import { Plugin } from './foundation.core.plugin';
 import { Triggers } from './foundation.util.triggers';
 
 /**

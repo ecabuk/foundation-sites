@@ -1,10 +1,10 @@
 'use strict';
 
 import $ from 'jquery';
-import { Plugin } from './foundation.core.plugin';
 import { onLoad, transitionend, RegExpEscape } from './foundation.core.utils';
 import { Keyboard } from './foundation.util.keyboard';
 import { MediaQuery } from './foundation.util.mediaQuery';
+import { Plugin } from './foundation.core.plugin';
 
 import { Triggers } from './foundation.util.triggers';
 
@@ -332,7 +332,7 @@ class OffCanvas extends Plugin {
    * @function
    * @param {Object} event - Event object passed from listener.
    * @param {jQuery} trigger - element that triggered the off-canvas to open.
-   * @fires OffCanvas#opened
+   * @fires Offcanvas#opened
    * @todo also trigger 'open' event?
    */
   open(event, trigger) {
@@ -400,16 +400,16 @@ class OffCanvas extends Plugin {
 
     /**
      * Fires when the off-canvas menu opens.
-     * @event OffCanvas#opened
+     * @event Offcanvas#opened
      */
-    this.$element.trigger('opened.zf.offCanvas');
+    this.$element.trigger('opened.zf.offcanvas');
   }
 
   /**
    * Closes the off-canvas menu.
    * @function
    * @param {Function} cb - optional cb to fire after closure.
-   * @fires OffCanvas#closed
+   * @fires Offcanvas#closed
    */
   close(cb) {
     if (!this.$element.hasClass('is-open') || this.isRevealed) { return; }
@@ -421,7 +421,7 @@ class OffCanvas extends Plugin {
     this.$element.attr('aria-hidden', 'true')
       /**
        * Fires when the off-canvas menu opens.
-       * @event OffCanvas#closed
+       * @event Offcanvas#closed
        */
         .trigger('closed.zf.offCanvas');
 
@@ -495,8 +495,8 @@ class OffCanvas extends Plugin {
    */
   _destroy() {
     this.close();
-    this.$element.off('.zf.trigger .zf.offCanvas');
-    this.$overlay.off('.zf.offCanvas');
+    this.$element.off('.zf.trigger .zf.offcanvas');
+    this.$overlay.off('.zf.offcanvas');
     if (this.onLoadListener) $(window).off(this.onLoadListener);
   }
 }

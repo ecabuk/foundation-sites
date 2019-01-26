@@ -451,6 +451,13 @@ $abbr-underline: 1px dotted $black !default;
   }
 
   // Code
+  code {
+    padding: $code-padding;
+
+    border: $code-border;
+    background-color: $code-background;
+
+  // Code
   @if ($enable-code-inline == true) {
     code {
       @extend .code-inline;

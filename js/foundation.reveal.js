@@ -1,12 +1,13 @@
 'use strict';
 
 import $ from 'jquery';
-import { Plugin } from './foundation.core.plugin';
 import { onLoad } from './foundation.core.utils';
 import { Keyboard } from './foundation.util.keyboard';
 import { MediaQuery } from './foundation.util.mediaQuery';
 import { Motion } from './foundation.util.motion';
+import { Plugin } from './foundation.core.plugin';
 import { Triggers } from './foundation.util.triggers';
+import { Touch } from './foundation.util.touch'
 
 /**
  * Reveal module.

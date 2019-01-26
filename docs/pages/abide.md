@@ -31,16 +31,16 @@ These input types create a text field: `text`, `date`, `datetime`, `datetime-loc
       <div class="cell small-12">
         <label>Number Required
           <input type="text" placeholder="1234" aria-describedby="example1Hint1" aria-errormessage="example1Error1" required pattern="number">
-          <span class="form-error">
+          <span class="form-error" id="example1Error1">
             Yo, you had better fill this out, it's required.
           </span>
         </label>
-      <p class="help-text" id="example1Hint1">Here's how you use this input field!</p>
+        <p class="help-text" id="example1Hint1">Here's how you use this input field!</p>
       </div>
       <div class="cell small-12">
         <label>Password Required
           <input type="password" id="password" placeholder="yeti4preZ" aria-describedby="example1Hint2" aria-errormessage="example1Error2" required >
-          <span class="form-error">
+          <span class="form-error" id="example1Error2">
             I'm required!
           </span>
         </label>
@@ -49,7 +49,7 @@ These input types create a text field: `text`, `date`, `datetime`, `datetime-loc
       <div class="cell small-12">
         <label>Re-enter Password
           <input type="password" placeholder="yeti4preZ" aria-describedby="example1Hint3" aria-errormessage="example1Error3" required pattern="alpha_numeric" data-equalto="password">
-          <span class="form-error">
+          <span class="form-error" id="example1Error3">
             Hey, passwords are supposed to match!
           </span>
         </label>

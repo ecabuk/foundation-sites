@@ -6,8 +6,6 @@ import { rtl as Rtl, ignoreMousedisappear } from './foundation.core.utils';
 import { Keyboard } from './foundation.util.keyboard';
 import { Nest } from './foundation.util.nest';
 import { Box } from './foundation.util.box';
-import { Touch } from './foundation.util.touch'
-
 
 /**
  * DropdownMenu module.
@@ -140,7 +138,7 @@ class DropdownMenu extends Plugin {
     }
 
     if (!this.options.disableHover) {
-      this.$menuItems.on('mouseenter.zf.dropdownMenu', function (e) {
+      this.$menuItems.on('mouseenter.zf.dropdownmenu', function (e) {
         var $elem = $(this),
           hasSub = $elem.hasClass(parClass);
 
@@ -295,7 +293,7 @@ class DropdownMenu extends Plugin {
    * @param {jQuery} $sub - ul element that is a submenu to show
    * @function
    * @private
-   * @fires DropdownMenu#show
+   * @fires Dropdownmenu#show
    */
   _show($sub) {
     var idx = this.$tabs.index(this.$tabs.filter(function(i, el) {

@@ -224,17 +224,11 @@ $buttongroup-radius-on-each: true !default;
       @include button-group-expand;
     }
 
-    // Solid, hollow & clear styles
-    @each $filling in (solid hollow clear) {
-      $base-selector: if($button-fill == $filling, null, '.#{$filling}');
-
-      &#{$base-selector} {
-        // Do not generate button base styles for the default filling
-        @if($button-fill != $filling) {
-          #{$buttongroup-child-selector} {
-            @include button-fill($filling);
-            @include button-fill-style($filling);
-          }
+    // Colors
+    @each $name, $color in $button-palette {
+      @if $button-fill != hollow {
+        &.#{$name} #{$buttongroup-child-selector} {
+          @include button-style($color, auto, auto);
         }
 
         @each $name, $color in $button-palette {
