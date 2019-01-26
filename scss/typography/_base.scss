@@ -199,6 +199,18 @@ $blockquote-border: 1px solid $medium-gray !default;
 /// @type Boolean
 $enable-cite-block: true;
 
+/// Font size for `<cite>` elements.
+/// @type Number
+$cite-font-size: em-calc(13) !default;
+
+/// Text color for `<cite>` elements.
+/// @type Color
+$cite-color: $dark-gray !default;
+
+/// Pseudo content for `<cite>` elements.
+/// @type String
+$cite-pseudo-content: '\2014 \0020' !default;
+
 /// Font family for `<kbd>` elements.
 /// @type String | List
 $keystroke-font: $font-family-monospace !default;
@@ -300,14 +312,14 @@ $abbr-underline: 1px dotted $black !default;
   @each $size, $headers in $header-styles {
     @include breakpoint($size) {
       @each $header, $header-defs in $headers {
-        $font-size-temp: 1rem;
+        $font-size-temp: 1em;
         #{$header}, .#{$header} {
 
           @if map-has-key($header-defs, font-size) {
-            $font-size-temp: rem-calc(map-get($header-defs, font-size));
+            $font-size-temp: em-calc(map-get($header-defs, font-size));
             font-size: $font-size-temp;
           } @else if map-has-key($header-defs, fs) {
-            $font-size-temp: rem-calc(map-get($header-defs, fs));
+            $font-size-temp: em-calc(map-get($header-defs, fs));
             font-size: $font-size-temp;
           } @else if $size == $-zf-zero-breakpoint {
             font-size: $font-size-temp;
@@ -321,18 +333,18 @@ $abbr-underline: 1px dotted $black !default;
           }
 
           @if map-has-key($header-defs, margin-top) {
-            margin-top: rem-calc(map-get($header-defs, margin-top));
+            margin-top: em-calc(map-get($header-defs, margin-top));
           } @else if map-has-key($header-defs, mt) {
-            margin-top: rem-calc(map-get($header-defs, mt));
+            margin-top: em-calc(map-get($header-defs, mt));
           } @else if $size == $-zf-zero-breakpoint {
             margin-top: 0;
           }
           @if map-has-key($header-defs, margin-bottom) {
-            margin-bottom: rem-calc(map-get($header-defs, margin-bottom));
+            margin-bottom: em-calc(map-get($header-defs, margin-bottom));
           } @else if map-has-key($header-defs, mb) {
-            margin-bottom: rem-calc(map-get($header-defs, mb));
+            margin-bottom: em-calc(map-get($header-defs, mb));
           } @else if $size == $-zf-zero-breakpoint {
-            margin-bottom: rem-calc($header-margin-bottom);
+            margin-bottom: em-calc($header-margin-bottom);
           }
         }
       }
